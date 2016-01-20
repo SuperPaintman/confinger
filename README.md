@@ -82,6 +82,7 @@ Gets the value at path of config. If the resolved value is undefined then return
 * {`Any|Undefined`} value of path
 
 **Example**
+
 Without throw error
 
 ```js
