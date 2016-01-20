@@ -1,4 +1,6 @@
 # Confinger
+A simple way to store application configuration
+
 ## Installation
 ```sh
 npm install confinger --save

@@ -1,7 +1,7 @@
 {
   "name": "confinger",
-  "version": "1.0.3",
-  "description": "A simple way, store application settings",
+  "version": "1.0.4",
+  "description": "A simple way to store application configuration",
   "main": "bin/confinger.js",
   "author": {
     "name": "superpaintman",
