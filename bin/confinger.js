@@ -24,14 +24,14 @@ var Confinger = (function () {
     };
     /**
      * Get prop of config
-     * @param  {string} name
+     * @param  {string} path
      *
      * @return {any}
      */
-    Confinger.prototype.get = function (key) {
-        var prop = _.get(this._props, key);
+    Confinger.prototype.get = function (path) {
+        var prop = _.get(this._props, path);
         if (this.opts.emit_error && !prop) {
-            throw new Error("The configuration hasn't \"" + key + "\"");
+            throw new Error("The configuration hasn't \"" + path + "\"");
         }
         else {
             return prop;
@@ -39,33 +39,33 @@ var Confinger = (function () {
     };
     /**
      * Set prop into config
-     * @param  {string} key
+     * @param  {string} path
      * @param  {any}    value
      *
      * @return {Confinger}
      */
-    Confinger.prototype.set = function (key, value) {
-        _.set(this._props, key, value);
+    Confinger.prototype.set = function (path, value) {
+        _.set(this._props, path, value);
         return this;
     };
     /**
      * Checks if prop in config
-     * @param  {string}  key
+     * @param  {string}  path
      *
      * @return {boolean}
      */
-    Confinger.prototype.has = function (key) {
-        return _.has(this._props, key);
+    Confinger.prototype.has = function (path) {
+        return _.has(this._props, path);
     };
     /**
      * Delete prop in confog
-     * @param  {string}  key
+     * @param  {string}  path
      *
      * @return {boolean}
      */
-    Confinger.prototype.del = function (key) {
-        if (this.has(key)) {
-            return _.unset(this._props, key);
+    Confinger.prototype.del = function (path) {
+        if (this.has(path)) {
+            return _.unset(this._props, path);
         }
         else {
             return false;

@@ -36,15 +36,15 @@ class Confinger {
 
     /**
      * Get prop of config
-     * @param  {string} name
+     * @param  {string} path
      * 
      * @return {any}
      */
-    get(key: string): any {
-        var prop = _.get(this._props, key);
+    get(path: string): any {
+        var prop = _.get(this._props, path);
 
         if (this.opts.emit_error && !prop) {
-            throw new Error(`The configuration hasn't "${key}"`);
+            throw new Error(`The configuration hasn't "${path}"`);
         } else {
             return prop;
         }
@@ -52,36 +52,36 @@ class Confinger {
 
     /**
      * Set prop into config
-     * @param  {string} key
+     * @param  {string} path
      * @param  {any}    value
      * 
      * @return {Confinger}
      */
-    set(key: string, value: any): Confinger {
-        _.set(this._props, key, value);
+    set(path: string, value: any): Confinger {
+        _.set(this._props, path, value);
 
         return this;
     }
 
     /**
      * Checks if prop in config
-     * @param  {string}  key
+     * @param  {string}  path
      * 
      * @return {boolean}
      */
-    has(key: string): boolean {
-        return _.has(this._props, key);
+    has(path: string): boolean {
+        return _.has(this._props, path);
     }
 
     /**
      * Delete prop in confog
-     * @param  {string}  key
+     * @param  {string}  path
      * 
      * @return {boolean}
      */
-    del(key: string): boolean {
-        if (this.has(key)) {
-            return _.unset(this._props, key);
+    del(path: string): boolean {
+        if (this.has(path)) {
+            return _.unset(this._props, path);
         } else {
             return false;
         }
