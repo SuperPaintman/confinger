@@ -8,7 +8,7 @@ import Confinger = require("../Confinger");
 describe("Confinger", () => {
     describe("#add", () => {
         it("load 1 props set", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
             configs.add({
                 a: 1,
                 b: 2,
@@ -21,7 +21,7 @@ describe("Confinger", () => {
         });
 
         it("load 2 props set", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
             configs
                 .add({
                     a: 1,
@@ -43,7 +43,7 @@ describe("Confinger", () => {
         });
 
         it("load 2 props set with rewrite", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
             configs
                 .add({
                     a: 1,
@@ -61,7 +61,7 @@ describe("Confinger", () => {
         });
 
         it("load 2 deep props set with rewrite", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
             configs
                 .add({
                     a: 1,
@@ -94,7 +94,7 @@ describe("Confinger", () => {
 
     describe("#get", () => {
         it("get prop", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
             configs
                 .add({
                     a: 1,
@@ -114,7 +114,7 @@ describe("Confinger", () => {
         });
 
         it("get non-existent prop with throw", () => {
-            var configs = new Confinger({
+            const configs = new Confinger({
                 emit_error: true
             });
             configs
@@ -128,7 +128,7 @@ describe("Confinger", () => {
                     deep: { deep: { deep: 1337 } }
                 });
 
-            var err;
+            let err;
             try {
                 configs.get('d');
             } catch (e) {
@@ -139,7 +139,7 @@ describe("Confinger", () => {
         });
 
         it("get non-existent prop without throw", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -152,8 +152,8 @@ describe("Confinger", () => {
                     deep: { deep: { deep: 1337 } }
                 });
 
-            var err;
-            var prop;
+            let err;
+            let prop;
             try {
                 prop = configs.get('d');
             } catch (e) {
@@ -168,7 +168,7 @@ describe("Confinger", () => {
 
     describe("#set", () => {
         it("set into empty config", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .set("a", 1)
@@ -185,7 +185,7 @@ describe("Confinger", () => {
         });
 
         it("set into filled config", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -209,7 +209,7 @@ describe("Confinger", () => {
         });
 
         it("set into filled config with rewrite", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -239,7 +239,7 @@ describe("Confinger", () => {
 
     describe("#has", () => {
         it("check exists prop", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -260,7 +260,7 @@ describe("Confinger", () => {
         });
 
         it("check non-existent prop", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -287,7 +287,7 @@ describe("Confinger", () => {
 
     describe("#del", () => {
         it("delete exists prop", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
@@ -315,7 +315,7 @@ describe("Confinger", () => {
         });
 
         it("delete non-existent prop", () => {
-            var configs = new Confinger();
+            const configs = new Confinger();
 
             configs
                 .add({
