@@ -16,7 +16,7 @@ const fileConfig = require("./configs.json");
 let configs = new Confinger();
 
 configs
-    // Let, add default props
+    // Let's, add default props
     .add({
         server: {
             port:   80,
@@ -37,7 +37,7 @@ configs
             "name": process.env.DB_NAME
         }
     })
-    // And of course, arguments
+    // and of course, arguments
     .add({
         port: process.argv[3]
     });
