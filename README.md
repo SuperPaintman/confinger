@@ -13,8 +13,7 @@ npm install confinger --save
 const Confinger = require("confinger");
 const fileConfig = require("./configs.json");
 
-let configs = new Confinger();
-
+const configs = new Confinger();
 configs
     // Let's, add default props
     .add({
@@ -88,7 +87,7 @@ Gets the value at path of config. If the resolved value is undefined then return
 Without throw error
 
 ```js
-let configs = new Confinger();
+const configs = new Confinger();
 configs.add({
     server: {
         port:   80,
@@ -103,7 +102,7 @@ configs.get("db.port"); // <- Undefined
 and without throw error. This is useful if the props is necessary to app work, like `db password` or `password secret`
 
 ```js
-let configs = new Confinger({
+const configs = new Confinger({
     emit_error: true
 });
 configs.add({
