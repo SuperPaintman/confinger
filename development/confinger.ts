@@ -41,7 +41,7 @@ class Confinger {
      * @return {any}
      */
     get(path: string): any {
-        let prop = _.get(this._props, path);
+        const prop = _.get(this._props, path);
 
         if (this.opts.emit_error && !prop) {
             throw new Error(`The configuration hasn't "${path}"`);
