@@ -1,7 +1,7 @@
 'use strict';
 /// <reference path="typings/tds.d.ts"/>
 var assert = require('assert');
-var Confinger = require("../Confinger");
+var Confinger = require("../confinger");
 describe("Confinger", function () {
     describe("#add", function () {
         it("load 1 props set", function () {

@@ -1,4 +1,11 @@
 # Confinger
+
+[![Linux Build][travis-image]][travis-url]
+[![Windows Build][appveyor-image]][appveyor-url]
+[![NPM version][npm-v-image]][npm-link]
+[![NPM Downloads][npm-dm-image]][npm-link]
+
+
 A simple way to store application configuration
 
 ## Installation
@@ -196,3 +203,11 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[npm-link]: https://www.npmjs.com/package/confinger
+[npm-v-image]: https://img.shields.io/npm/v/confinger.svg
+[npm-dm-image]: https://img.shields.io/npm/dm/confinger.svg
+[travis-image]: https://img.shields.io/travis/SuperPaintman/confinger/master.svg?label=linux
+[travis-url]: https://travis-ci.org/SuperPaintman/confinger
+[appveyor-image]: https://img.shields.io/appveyor/ci/SuperPaintman/confinger/master.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/SuperPaintman/confinger

@@ -1,6 +1,6 @@
 {
   "name": "confinger",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple way to store application configuration",
   "main": "bin/confinger.js",
   "author": {
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "tsc -w -p ./",
     "build": "tsc -p ./",
-    "test": "npm run build && mocha ./bin/test",
+    "test": "mocha ./bin/test",
     "prepublish": "npm run build && npm run test"
   },
   "keywords": [

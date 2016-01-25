@@ -3,7 +3,7 @@
 
 import assert = require('assert');
 
-import Confinger = require("../Confinger");
+import Confinger = require("../confinger");
 
 describe("Confinger", () => {
     describe("#add", () => {
