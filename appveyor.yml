@@ -8,8 +8,8 @@ environment:
     - nodejs_version: "5.5"
 install:
   - "npm install -g mocha"
-  - "npm install -g typescript@latest"
-  - "npm install -g tsd@latest"
+  - "npm install -g typescript"
+  - "npm install -g tsd"
   - "tsd reinstall --save"
   - "npm run build"
 build: off
