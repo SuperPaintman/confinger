@@ -4,6 +4,7 @@
 [![Windows Build][appveyor-image]][appveyor-url]
 [![NPM version][npm-v-image]][npm-link]
 [![NPM Downloads][npm-dm-image]][npm-link]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
 
 A simple way to store application configuration
@@ -211,3 +212,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [travis-url]: https://travis-ci.org/SuperPaintman/confinger
 [appveyor-image]: https://img.shields.io/appveyor/ci/SuperPaintman/confinger/master.svg?label=windows
 [appveyor-url]: https://ci.appveyor.com/project/SuperPaintman/confinger
+[coveralls-image]: https://img.shields.io/coveralls/SuperPaintman/confinger/master.svg
+[coveralls-url]: https://coveralls.io/r/SuperPaintman/confinger?branch=master

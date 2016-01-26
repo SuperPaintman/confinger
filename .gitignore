@@ -3,3 +3,6 @@ node_modules/
 
 # Typings
 typings/
+
+# Coverage
+coverage/
