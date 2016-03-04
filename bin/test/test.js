@@ -4,7 +4,7 @@ var assert = require('assert');
 var Confinger = require("../confinger");
 describe("Confinger", function () {
     describe("#add", function () {
-        it("load 1 props set", function () {
+        it("should load 1 props set", function () {
             var configs = new Confinger();
             configs.add({
                 a: 1,
@@ -15,7 +15,7 @@ describe("Confinger", function () {
             assert.equal(configs._props['b'], 2);
             assert.equal(configs._props['c'], 3);
         });
-        it("load 2 props set", function () {
+        it("should load 2 props set", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -35,7 +35,7 @@ describe("Confinger", function () {
             assert.equal(configs._props['e'], 5);
             assert.equal(configs._props['f'], 6);
         });
-        it("load 2 props set with rewrite", function () {
+        it("should load 2 props set with rewrite", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -51,7 +51,7 @@ describe("Confinger", function () {
             assert.equal(configs._props['b'], 2);
             assert.equal(configs._props['c'], 5);
         });
-        it("load 2 deep props set with rewrite", function () {
+        it("should load 2 deep props set with rewrite", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -80,9 +80,60 @@ describe("Confinger", function () {
                 }
             });
         });
+        it("should load 2 (second with undefined) props set without rewrite", function () {
+            var configs = new Confinger();
+            configs
+                .add({
+                a: 1,
+                b: 2,
+                c: 3
+            })
+                .add({
+                a: 4,
+                c: undefined
+            });
+            assert.equal(configs._props['a'], 4);
+            assert.equal(configs._props['b'], 2);
+            assert.equal(configs._props['c'], 3);
+        });
+        it("should load 2 (second with undefined) props set without rewrite", function () {
+            var configs = new Confinger();
+            configs
+                .add({
+                a: 1,
+                b: 2,
+                group: {
+                    a: 10,
+                    b: 20,
+                    d: 40
+                },
+                deep: { deep: { deep: 1337 } }
+            })
+                .add({
+                a: undefined,
+                c: 5,
+                group: {
+                    b: undefined,
+                    c: 300
+                },
+                deep: undefined
+            });
+            assert.deepEqual(configs._props, {
+                a: 1,
+                b: 2,
+                c: 5,
+                group: {
+                    a: 10,
+                    b: 20,
+                    c: 300,
+                    d: 40
+                },
+                deep: { deep: { deep: 1337 } }
+            });
+        });
     });
     describe("#get", function () {
-        it("get prop", function () {
+        it("should get prop", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -100,7 +151,7 @@ describe("Confinger", function () {
             assert.equal(configs.get('group.b'), 20);
             assert.equal(configs.get('deep.deep.deep'), 1337);
         });
-        it("get non-existent prop with throw", function () {
+        it("should get non-existent prop with throw", function () {
             var configs = new Confinger({
                 emit_error: true
             });
@@ -124,7 +175,7 @@ describe("Confinger", function () {
             ;
             assert.equal(err.message, "The configuration hasn't \"d\"");
         });
-        it("get non-existent prop without throw", function () {
+        it("should get non-existent prop without throw", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -151,7 +202,7 @@ describe("Confinger", function () {
         });
     });
     describe("#set", function () {
-        it("set into empty config", function () {
+        it("should set into empty config", function () {
             var configs = new Confinger();
             configs
                 .set("a", 1)
@@ -164,7 +215,7 @@ describe("Confinger", function () {
             assert.equal(configs.get('b'), 2);
             assert.equal(configs.get('deep.deep.deep'), 1337);
         });
-        it("set into filled config", function () {
+        it("should set into filled config", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -184,7 +235,7 @@ describe("Confinger", function () {
             assert.equal(configs.get('group.b'), 20);
             assert.equal(configs.get('deep.deep.deep'), 1337);
         });
-        it("set into filled config with rewrite", function () {
+        it("should set into filled config with rewrite", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -210,7 +261,7 @@ describe("Confinger", function () {
         });
     });
     describe("#has", function () {
-        it("check exists prop", function () {
+        it("should check exists prop", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -228,7 +279,7 @@ describe("Confinger", function () {
             assert.ok(configs.has("group.b"));
             assert.ok(configs.has("deep.deep.deep"));
         });
-        it("check non-existent prop", function () {
+        it("should check non-existent prop", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -251,7 +302,7 @@ describe("Confinger", function () {
         });
     });
     describe("#del", function () {
-        it("delete exists prop", function () {
+        it("should delete exists prop", function () {
             var configs = new Confinger();
             configs
                 .add({
@@ -273,7 +324,7 @@ describe("Confinger", function () {
             assert.ok(!configs.has("a"));
             assert.ok(!configs.has("deep.deep.deep"));
         });
-        it("delete non-existent prop", function () {
+        it("should delete non-existent prop", function () {
             var configs = new Confinger();
             configs
                 .add({
