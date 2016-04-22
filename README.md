@@ -18,8 +18,8 @@ npm install confinger --save
 
 ## Usage
 ```js
-const Confinger = require("confinger");
-const fileConfig = require("./configs.json");
+const Confinger = require('confinger');
+const fileConfig = require('./configs.json');
 
 const configs = new Confinger();
 configs
@@ -31,9 +31,9 @@ configs
         },
 
         db: {
-            "host": "localhost",
-            "port": 27017,
-            "name": "blog"
+            host: 'localhost',
+            port: 27017,
+            name: 'blog'
         }
     })
     // configs from file
@@ -41,7 +41,7 @@ configs
     // also process env
     .add({
         db: {
-            "name": process.env.DB_NAME
+            name: process.env.DB_NAME
         }
     })
     // and of course, arguments
@@ -103,8 +103,8 @@ configs.add({
     }
 });
 
-configs.get("server.port"); // <- 80
-configs.get("db.port"); // <- Undefined
+configs.get('server.port'); // <- 80
+configs.get('db.port'); // <- Undefined
 ```
 
 and without throw error. This is useful if the props is necessary to app work, like `db password` or `password secret`
@@ -120,8 +120,8 @@ configs.add({
     }
 });
 
-configs.get("server.port"); // <- 80
-configs.get("db.port"); // <- throw Error: `The configuration hasn't "db.port"`
+configs.get('server.port'); // <- 80
+configs.get('db.port'); // <- throw Error: `The configuration hasn't "db.port"`
 ```
 
 ### Confinger\#getAll
@@ -165,7 +165,7 @@ Sets single property into config.
 **Example**
 
 ```js
-configs.set("db.password", "toor");
+configs.set('db.password', 'toor');
 ```
 
 ### Confinger\#has
@@ -187,8 +187,8 @@ configs.add({
     }
 });
 
-configs.has("server.port"); // <- true
-configs.has("db.password"); // <- false
+configs.has('server.port'); // <- true
+configs.has('db.password'); // <- false
 ```
 
 ### Confinger\#del
@@ -210,8 +210,8 @@ configs.add({
     }
 });
 
-configs.del("server.port"); // <- true
-configs.del("db.password"); // <- false
+configs.del('server.port'); // <- true
+configs.del('db.password'); // <- false
 ```
 
 ### Confinger\#delAll

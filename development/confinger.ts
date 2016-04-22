@@ -1,7 +1,7 @@
 'use strict';
 /// <reference path="typings/tds.d.ts"/>
 
-import _ = require("lodash");
+import _ = require('lodash');
 
 interface Options {
   emit_error: boolean;

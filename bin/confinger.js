@@ -1,6 +1,6 @@
 'use strict';
 /// <reference path="typings/tds.d.ts"/>
-var _ = require("lodash");
+var _ = require('lodash');
 var Confinger = (function () {
     function Confinger(opts) {
         if (opts === void 0) { opts = {}; }

@@ -1,6 +1,6 @@
 {
   "name": "confinger",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple way to store application configuration",
   "main": "bin/confinger.js",
   "author": {
