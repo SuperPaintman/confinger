@@ -201,6 +201,31 @@ describe("Confinger", function () {
             assert.equal(prop, undefined);
         });
     });
+    describe("#getAll", function () {
+        it("should get all props", function () {
+            var configs = new Confinger();
+            configs
+                .add({
+                a: 1,
+                b: 2,
+                group: {
+                    a: 10,
+                    b: 20
+                },
+                deep: { deep: { deep: 1337 } }
+            });
+            assert.deepEqual(configs.getAll(), configs._props);
+            assert.deepEqual(configs.getAll(), {
+                a: 1,
+                b: 2,
+                group: {
+                    a: 10,
+                    b: 20
+                },
+                deep: { deep: { deep: 1337 } }
+            });
+        });
+    });
     describe("#set", function () {
         it("should set into empty config", function () {
             var configs = new Confinger();

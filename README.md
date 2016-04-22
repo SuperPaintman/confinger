@@ -124,6 +124,34 @@ configs.get("server.port"); // <- 80
 configs.get("db.port"); // <- throw Error: `The configuration hasn't "db.port"`
 ```
 
+### Confinger\#getAll
+Get the all value of config.
+
+**Returns**
+* {`Object`} all values
+
+**Example**
+
+```js
+const configs = new Confinger();
+configs.add({
+    server: {
+        port:   80,
+        ip:     '127.0.0.1'
+    }
+});
+
+configs.getAll();
+/**
+ * {
+ *     server: {
+ *         port:   80,
+ *         ip:     '127.0.0.1'
+ *     }
+ * }
+ */
+```
+
 ### Confinger\#set
 Sets single property into config.
 
@@ -189,6 +217,11 @@ configs.del("db.password"); // <- false
 --------------------------------------------------------------------------------
 
 ## Changelog
+### 1.1.0 [`Stable`]
+```diff
++ Added `Confinger#getAll` method
+```
+
 ### 1.0.0 [`Stable`]
 ```diff
 + First realise

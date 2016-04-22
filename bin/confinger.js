@@ -38,6 +38,14 @@ var Confinger = (function () {
         }
     };
     /**
+     * Get all props of config
+     *
+     * @return {any}
+     */
+    Confinger.prototype.getAll = function () {
+        return this._props;
+    };
+    /**
      * Set prop into config
      * @param  {string} path
      * @param  {any}    value
@@ -72,5 +80,5 @@ var Confinger = (function () {
         }
     };
     return Confinger;
-})();
+}());
 module.exports = Confinger;

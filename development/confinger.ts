@@ -51,6 +51,15 @@ class Confinger {
   }
 
   /**
+   * Get all props of config
+   * 
+   * @return {any}
+   */
+  getAll(): any {
+    return this._props;
+  }
+
+  /**
    * Set prop into config
    * @param  {string} path
    * @param  {any}    value
