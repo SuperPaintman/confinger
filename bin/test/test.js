@@ -372,4 +372,22 @@ describe("Confinger", function () {
             assert.ok(!configs.has("deep.deeper"));
         });
     });
+    describe("#delAll", function () {
+        it("should delete all props", function () {
+            var configs = new Confinger();
+            configs
+                .add({
+                a: 1,
+                b: 2,
+                group: {
+                    a: 10,
+                    b: 20
+                },
+                deep: { deep: { deep: 1337 } }
+            });
+            configs.delAll();
+            assert.deepEqual(configs._props, {});
+            assert.deepEqual(configs.getAll(), {});
+        });
+    });
 });

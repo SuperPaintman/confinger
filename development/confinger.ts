@@ -83,7 +83,7 @@ class Confinger {
   }
 
   /**
-   * Delete prop in confog
+   * Delete prop in config
    * @param  {string}  path
    * 
    * @return {boolean}
@@ -94,6 +94,17 @@ class Confinger {
     } else {
       return false;
     }
+  }
+
+  /**
+   * Delete all props in config
+   * 
+   * @return {Confinger}
+   */
+  delAll(): Confinger {
+    this._props = {};
+
+    return this;
   }
 }
 

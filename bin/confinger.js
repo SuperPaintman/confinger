@@ -66,7 +66,7 @@ var Confinger = (function () {
         return _.has(this._props, path);
     };
     /**
-     * Delete prop in confog
+     * Delete prop in config
      * @param  {string}  path
      *
      * @return {boolean}
@@ -78,6 +78,15 @@ var Confinger = (function () {
         else {
             return false;
         }
+    };
+    /**
+     * Delete all props in config
+     *
+     * @return {Confinger}
+     */
+    Confinger.prototype.delAll = function () {
+        this._props = {};
+        return this;
     };
     return Confinger;
 }());

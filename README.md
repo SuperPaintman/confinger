@@ -214,9 +214,35 @@ configs.del("server.port"); // <- true
 configs.del("db.password"); // <- false
 ```
 
+### Confinger\#delAll
+Removes the all property of config instance.
+
+**Returns**
+* current config instance
+
+**Example**
+
+```js
+configs.add({
+    server: {
+        port:   80,
+        ip:     '127.0.0.1'
+    }
+});
+
+configs.delAll();
+
+configs.getAll(); // <- {}
+```
+
 --------------------------------------------------------------------------------
 
 ## Changelog
+### 1.2.0 [`Stable`]
+```diff
++ Added `Confinger#delAll` method
+```
+
 ### 1.1.0 [`Stable`]
 ```diff
 + Added `Confinger#getAll` method
