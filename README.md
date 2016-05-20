@@ -59,7 +59,7 @@ const port = configs.get('server.port');
 ### Confinger
 **Arguments**
 * **opts** {`Object`}
-    * **emit_error** {`Boolean`} - is needs to throw an error if no such property. *default*: `false`
+    * **emitError** {`Boolean`} - is needs to throw an error if no such property. *default*: `false`
 
 ### Confinger\#add
 Loads the properties of the configuration.
@@ -82,7 +82,7 @@ configs.add({
 ```
 
 ### Confinger\#get
-Gets the value at path of config. If the resolved value is undefined then returns `undefined`. If instance *emit_error* options set by `true`, then throws error.
+Gets the value at path of config. If the resolved value is undefined then returns `undefined`. If instance *emitError* options set by `true`, then throws error.
 
 **Arguments**
 * **path** {`String`} - path to value in config object
@@ -111,7 +111,7 @@ and without throw error. This is useful if the props is necessary to app work, l
 
 ```js
 const configs = new Confinger({
-    emit_error: true
+    emitError: true
 });
 configs.add({
     server: {
@@ -238,6 +238,12 @@ configs.getAll(); // <- {}
 --------------------------------------------------------------------------------
 
 ## Changelog
+### 2.0.0 [`Stable`]
+```diff
++ Fixed throwing error if property is undefined
++ Renamed `emit_error` -> `emitError`
+```
+
 ### 1.2.0 [`Stable`]
 ```diff
 + Added `Confinger#delAll` method

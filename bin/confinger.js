@@ -7,7 +7,7 @@ var Confinger = (function () {
         /** Default options */
         this.opts = _.merge({
             // Выкидывать ошибку, если такого параметра не найдено
-            emit_error: false
+            emitError: false
         }, opts);
         /** Props */
         this._props = {};
@@ -30,7 +30,7 @@ var Confinger = (function () {
      */
     Confinger.prototype.get = function (path) {
         var prop = _.get(this._props, path);
-        if (this.opts.emit_error && !prop) {
+        if (this.opts.emitError && prop === undefined) {
             throw new Error("The configuration hasn't \"" + path + "\"");
         }
         else {

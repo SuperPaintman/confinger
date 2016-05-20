@@ -4,7 +4,7 @@
 import _ = require('lodash');
 
 interface Options {
-  emit_error: boolean;
+  emitError: boolean;
 }
 
 class Confinger {
@@ -15,7 +15,7 @@ class Confinger {
     /** Default options */
     this.opts = _.merge({
       // Выкидывать ошибку, если такого параметра не найдено
-      emit_error: false
+      emitError: false
     }, opts);
 
     /** Props */
@@ -43,7 +43,7 @@ class Confinger {
   get(path: string): any {
     const prop = _.get(this._props, path);
 
-    if (this.opts.emit_error && !prop) {
+    if (this.opts.emitError && prop === undefined) {
       throw new Error(`The configuration hasn't "${path}"`);
     } else {
       return prop;

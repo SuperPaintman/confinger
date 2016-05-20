@@ -170,7 +170,7 @@ describe('Confinger', () => {
 
     it('should get non-existent prop with throw', () => {
       const configs = new Confinger({
-        emit_error: true
+        emitError: true
       });
       configs
         .add({
@@ -180,17 +180,34 @@ describe('Confinger', () => {
             a: 10,
             b: 20
           },
+          str:   '',
+          zero:  0,
+          nully: null,
+          falsy: false,
           deep: { deep: { deep: 1337 } }
         });
 
-      let err;
-      try {
+      assert.throws(() => {
         configs.get('d');
-      } catch (e) {
-        err = e;
-      };
+      }, (err) => {
+        return err.message === 'The configuration hasn\'t "d"';
+      });
 
-      assert.equal(err.message, 'The configuration hasn\'t "d"');
+      assert.doesNotThrow(() => {
+        configs.get('str');
+      });
+
+      assert.doesNotThrow(() => {
+        configs.get('zero');
+      });
+
+      assert.doesNotThrow(() => {
+        configs.get('nully');
+      });
+
+      assert.doesNotThrow(() => {
+        configs.get('falsy');
+      });
     });
 
     it('should get non-existent prop without throw', () => {
